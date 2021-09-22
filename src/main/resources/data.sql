@@ -1,0 +1,1 @@
+INSERT INTO mesttra.roles (name) VALUES('ADMIN'), ('BUYER');

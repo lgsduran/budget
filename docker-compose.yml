@@ -1,20 +1,21 @@
 version: '3.8'
 
 services:
-  mongo-database:
-    container_name: mongodb
-    image: mongo
+  mariadb:
+    container_name: mariadb
+    image: mariadb
     restart: always
     environment:
-       MONGO_INITDB_DATABASE: test
+      MARIADB_ROOT_PASSWORD: root
+#      MARIADB_DATABASE: aluraFlix
     ports:
-      - 27017:27017
+      - '3306:3306'
 #    volumes:
-#      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    networks: 
+#      - './mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql:ro'
+    networks:
       - mesttra-net
-
-networks: 
-  aluraflix-net:
+      
+networks:
+  backend:
     driver: bridge
     name: mesttra-net

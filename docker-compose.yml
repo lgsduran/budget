@@ -16,6 +16,6 @@ services:
       - mesttra-net
       
 networks:
-  backend:
+  mesttra-net:
     driver: bridge
     name: mesttra-net

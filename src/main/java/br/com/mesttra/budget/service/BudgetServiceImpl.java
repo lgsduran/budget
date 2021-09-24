@@ -22,7 +22,13 @@ public class BudgetServiceImpl implements IBudgetService {
 	BudgetRepository budgetRepository;
 
 	@Override
-	public Budget addBudget(AddBudgetRequest addBudgetRequest) {
+	public Budget addBudget(AddBudgetRequest addBudgetRequest) throws BusinessException {
+		if (addBudgetRequest.getSpentAmount() > addBudgetRequest.getTotalAmount()) {
+			throw new BusinessException(
+					format("Spent Amout %s cannot be higher than Total Amount %s", 
+							addBudgetRequest.getSpentAmount(),
+							addBudgetRequest.getTotalAmount()));
+		}
 		log.info("Budget added successfully.");
 		return this.budgetRepository.save(addBudgetRequest.toEntity());
 	}

@@ -9,7 +9,7 @@ import br.com.mesttra.budget.request.ChangeBudgetExpenses;
 
 public interface IBudgetService {
 
-	Budget addBudget(AddBudgetRequest addBudgetRequest);
+	Budget addBudget(AddBudgetRequest addBudgetRequest)  throws BusinessException;
 
 	List<Budget> listBudgets();
 

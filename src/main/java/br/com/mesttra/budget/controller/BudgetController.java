@@ -30,7 +30,7 @@ public class BudgetController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Budget addVideo(@Valid @RequestBody AddBudgetRequest addBudgetRequest) {
+	public Budget addVideo(@Valid @RequestBody AddBudgetRequest addBudgetRequest) throws BusinessException {
 		return this.budgetService.addBudget(addBudgetRequest);
 	}
 

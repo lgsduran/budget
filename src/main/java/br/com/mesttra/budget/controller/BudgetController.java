@@ -22,6 +22,7 @@ import br.com.mesttra.budget.service.BudgetServiceImpl;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
+//@RequiredArgsConstructor
 @RestController
 @RequestMapping("/budgets")
 public class BudgetController {
@@ -30,7 +31,7 @@ public class BudgetController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Budget addVideo(@Valid @RequestBody AddBudgetRequest addBudgetRequest) throws BusinessException {
+	public Budget addBudget(@Valid @RequestBody AddBudgetRequest addBudgetRequest) throws BusinessException {
 		return this.budgetService.addBudget(addBudgetRequest);
 	}
 
